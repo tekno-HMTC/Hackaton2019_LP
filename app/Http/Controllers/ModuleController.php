@@ -24,7 +24,7 @@ class ModuleController extends Controller
      */
     public function create()
     {
-        //
+        return view('module.create');
     }
 
     /**
@@ -35,7 +35,19 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'm_name' => 'required|unique:modules',
+            'ch_id' => 'required',
+        ]);
+
+        $module = new Module([
+            'm_name' => $request->get('m_name'),
+            'ch_id' => $request->get('ch_id'),
+            'description' => $request->get('descrption'),
+        ]);
+        $module->save();
+
+        return redirect()->route('modules.store')->with('message', 'Module '.$request->get('m_name').' created!');
     }
 
     /**
@@ -44,9 +56,10 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function show(Module $module)
+    public function show($id)
     {
-        //
+        $module = Module::find($id);
+        return view('modules.show', compact('module'));
     }
 
     /**
@@ -55,9 +68,10 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function edit(Module $module)
+    public function edit($id)
     {
-        //
+        $module = Module::find($id);
+        return view('modules.edit', compact('module'));
     }
 
     /**
@@ -67,9 +81,21 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Module $module)
+    public function update(Request $request, $id)
     {
-        //
+        $module = Module::find($id);
+
+        $request->validate([
+            'm_name' => 'required|unique:modules',
+            'ch_id' => 'required',
+        ]);
+
+        $module->m_name=$request->get('m_name');
+        $module->ch_id=$request->get('ch_id');
+        $module->description=$request->get('description');
+        $module->save();
+
+        return redirect()->route('modules.update')->with('message', 'Module '.$request->get('m_name').' updated!');
     }
 
     /**
@@ -78,8 +104,11 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Module $module)
+    public function destroy($id)
     {
-        //
+        $module = Module::find($id);
+        $module->delete();
+
+        return redirect()->back()->with('message','Module deleted!');
     }
 }
