@@ -28,7 +28,7 @@
         min-width: 12.5% !important;
     }
 
-    a:hover {
+    a:hover:not(.active) {
         color: #425C6C !important;
     }
 
@@ -41,14 +41,14 @@
 <div class="container-fluid mt-3">
     <div class="card-body">
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#navpills-1" class="nav-link active show" data-toggle="tab" aria-expanded="false">RPL</a></li>
-            <li class="nav-item"><a href="#navpills-2" class="nav-link" data-toggle="tab" aria-expanded="false">NCC</a></li>
-            <li class="nav-item"><a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">KCV</a></li>
-            <li class="nav-item"><a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">AJK</a></li>
-            <li class="nav-item"><a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">IGS</a></li>
-            <li class="nav-item"><a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">ALPRO</a></li>
-            <li class="nav-item"><a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">MI</a></li>
-            <li class="nav-item"><a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">DTK</a></li>
+            <li class="nav-item"><a href="#rpl" class="nav-link active show" data-toggle="tab" aria-expanded="false">RPL</a></li>
+            <li class="nav-item"><a href="#ncc" class="nav-link" data-toggle="tab" aria-expanded="false">NCC</a></li>
+            <li class="nav-item"><a href="#kcv" class="nav-link" data-toggle="tab" aria-expanded="true">KCV</a></li>
+            <li class="nav-item"><a href="#ajk" class="nav-link" data-toggle="tab" aria-expanded="true">AJK</a></li>
+            <li class="nav-item"><a href="#igs" class="nav-link" data-toggle="tab" aria-expanded="true">IGS</a></li>
+            <li class="nav-item"><a href="#alpro" class="nav-link" data-toggle="tab" aria-expanded="true">ALPRO</a></li>
+            <li class="nav-item"><a href="#mi" class="nav-link" data-toggle="tab" aria-expanded="true">MI</a></li>
+            <li class="nav-item"><a href="#dtk" class="nav-link" data-toggle="tab" aria-expanded="true">DTK</a></li>
         </ul>
         <div class="basic-list-group">
             <ul class="list-group list-group-flush">

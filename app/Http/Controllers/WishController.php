@@ -9,6 +9,9 @@ use GuzzleHttp;
 class WishController extends Controller
 {
     
+    function __construct(){
+        define('LINE_API_KEY','kZcto0j6AbahhTRSdjBxdXlfvtDfD+TW876ZdiRAL5fPsCgQmMrX8b/PYH7YFy+Y3cf3XlBXRh9HtJtXSAjoaW55aHj1PFy4JHf52nP1zXB4cwwZurOQtaQU03H5vCsqypo0J22Wsq8z1Bbevwn5kwdB04t89/1O/w1cDnyilFU=');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -71,7 +74,6 @@ class WishController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        define('LINE_API_KEY','kZcto0j6AbahhTRSdjBxdXlfvtDfD+TW876ZdiRAL5fPsCgQmMrX8b/PYH7YFy+Y3cf3XlBXRh9HtJtXSAjoaW55aHj1PFy4JHf52nP1zXB4cwwZurOQtaQU03H5vCsqypo0J22Wsq8z1Bbevwn5kwdB04t89/1O/w1cDnyilFU=');
         $message = '';
         switch($request->status){
             case 1:
@@ -96,7 +98,7 @@ class WishController extends Controller
                 //'to' =>  'U267c35cf0645c2d3f1870ee7dcc4b97e',
                 'messages' => [[
                     'type' => 'text',
-                    'text' => 'Request anda pada mata kuliah '.$request->mata_kuliah.' '.$message,
+                    'text' => 'request anda pada mata kuliah '.$request->mata_kuliah.' '.$message,
                     //'text' => 'hallo sayang'
                 ]]
             ]

@@ -34,7 +34,14 @@
                                 <div class="media-body">
                                     <h2>Matrix</h2>
                                     <h5>Materi</h5>
-
+                                    <div class="row">
+                                            <div class="col-2">
+                                                <i class="icon-diamond"></i>
+                                            </div>
+                                            <div class="col-8">
+                                                <h4>Perkalian Matrix</h4>
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
