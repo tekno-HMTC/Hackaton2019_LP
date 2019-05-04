@@ -12,9 +12,9 @@ class ModuleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($chid)
     {
-        $modules = Module::all();
+        $modules = Module::where('chapter_id',$chid)->get();
         return view('modules.index', compact('modules'));
     }
 
@@ -38,12 +38,12 @@ class ModuleController extends Controller
     {
         $request->validate([
             'm_name' => 'required|unique:modules',
-            'ch_id' => 'required',
+            'chapter_id' => 'required',
         ]);
 
         $module = new Module([
             'm_name' => $request->get('m_name'),
-            'ch_id' => $request->get('ch_id'),
+            'chapter_id' => $request->get('chapter_id'),
             'description' => $request->get('descrption'),
         ]);
         $module->save();
@@ -57,9 +57,9 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($mid)
     {
-        $module = Module::find($id);
+        $module = Module::find($mid);
         return view('modules.show', compact('module'));
     }
 
@@ -69,9 +69,9 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($mid)
     {
-        $module = Module::find($id);
+        $module = Module::find($mid);
         return view('modules.edit', compact('module'));
     }
 
@@ -82,17 +82,17 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $mid)
     {
-        $module = Module::find($id);
+        $module = Module::find($mid);
 
         $request->validate([
             'm_name' => 'required|unique:modules',
-            'ch_id' => 'required',
+            'chapter_id' => 'required',
         ]);
 
         $module->m_name=$request->get('m_name');
-        $module->ch_id=$request->get('ch_id');
+        $module->chapter_id=$request->get('chapter_id');
         $module->description=$request->get('description');
         $module->save();
 
@@ -105,9 +105,9 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($mid)
     {
-        $module = Module::find($id);
+        $module = Module::find($mid);
         $module->delete();
 
         return redirect()->back()->with('message','Module deleted!');
