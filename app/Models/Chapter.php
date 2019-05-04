@@ -12,18 +12,18 @@ class Chapter extends Model
      * @var array
      */
     protected $fillable = [
-        'module_id','name', 'description',
+        'course_id','name', 'description',
     ];
 
     public function modules(){
-        return $this->hasMany('App\Module');
+        return $this->hasMany('App\Models\Module');
     }
 
     public function wishes(){
-        return $this->hasMany('App\Wish');
+        return $this->hasMany('App\Models\Wish');
     }
 
     public function course(){
-        return $this->belongsTo('App\Course');
+        return $this->belongsTo('App\Models\Course');
     }
 }

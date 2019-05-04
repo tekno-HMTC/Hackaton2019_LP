@@ -37,18 +37,18 @@ class ModuleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'm_name' => 'required|unique:modules',
+            'name' => 'required',
             'chapter_id' => 'required',
         ]);
 
         $module = new Module([
-            'm_name' => $request->get('m_name'),
+            'name' => $request->get('name'),
             'chapter_id' => $request->get('chapter_id'),
-            'description' => $request->get('descrption'),
+            'description' => $request->get('description'),
         ]);
         $module->save();
 
-        return redirect()->route('modules.store')->with('message', 'Module '.$request->get('m_name').' created!');
+        return redirect()->route('specializations.courses.chapters.index', [$module->chapter->course->specialization->id, $module->chapter->course->id, $module->chapter->id])->with('message', 'Module '.$request->get('name').' created!');
     }
 
     /**
@@ -57,7 +57,7 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function show($mid)
+    public function show($sid, $cid, $chid, $mid)
     {
         $module = Module::find($mid);
         return view('modules.show', compact('module'));
@@ -105,19 +105,16 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy($mid)
+    public function destroy($sid, $cid, $chid, $mid)
     {
         $module = Module::find($mid);
         $module->delete();
 
-        return redirect()->back()->with('message','Module deleted!');
+        return redirect()->route('specializations.courses.chapters.index', [$sid, $cid, $chid]);
     }
 
     public function getAPICall($id){
         $data = Module::find($id);
-        if(count($data)==0){
-            return response()->json(['status'=> 'error'],404);
-        }
         return response()->json($data,200);
     }
 }

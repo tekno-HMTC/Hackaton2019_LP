@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Chapter;
 use App\Models\Specialization;
 use Illuminate\Http\Request;
 
@@ -49,7 +50,7 @@ class CourseController extends Controller
         ]);
         $mk->save();
 
-        return redirect()->route('courses.store')->with('message', 'Mata Kuliah '.$request->get('name').' dibuat!');
+        return redirect()->route('specializations.index')->with('message', 'Mata Kuliah '.$request->get('name').' dibuat!');
     }
 
     /**
@@ -104,11 +105,16 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($sid, $id)
     {
         $mk = Course::find($id);
         $mk->delete();
 
         return redirect()->back()->with('message', 'Mata Kuliah dihapus!');
+    }
+
+    public function getAPICall($id){
+        $data = Chapter::where('course_id',$id)->get();
+        return response()->json($data,200);
     }
 }

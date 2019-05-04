@@ -7,6 +7,22 @@
         margin: 0 auto;
         max-width: 60%;
     }
+
+    .card-title {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        color: black;
+    }
+
+    .media .row {
+        margin-left: 4px;
+        padding: 8px;
+    }
+
+    a:hover {
+        color: black;
+    }
+
 </style>
 @endsection
 @section('content-kiri')
@@ -20,156 +36,54 @@
                     </span>
                 </button>
             </div>
-        </div>
-    </div>
-@endsection
-@section('content-kanan')
-<div class="container-fluid m-4">
-        <div class="row justify-content-center">
-            <div class="col-10 m-4">
-                <div class="col-12">
-                    <div class="card card-widget">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="media-body">
-                                    <h2>Matrix</h2>
-                                    <h5>Materi</h5>
-                                    <div class="row">
-                                            <div class="col-2">
-                                                <i class="icon-diamond"></i>
-                                            </div>
-                                            <div class="col-8">
-                                                <h4>Perkalian Matrix</h4>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-12 mt-4 mb-4">
+                <div class="row justify-content-center">
+                    <div style="word-wrap:break-word; width: 60%">
+                        <h1 class="text-white">Matrixxxxxxxxxxxxxxxxxx</h1>
                     </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-widget">
-                        <div class="card-body gradient-3">
-                            <div class="media">
-                                <span class="card-widget__icon"><i class="icon-home"></i></span>
-                                <div class="media-body">
-                                    <h2 class="card-widget__title">RNK</h2>
-                                    <h5 class="card-widget__subtitle">All Properties</h5>
-                                </div>
+                </div>
+            </div>
+            <div class="col-12 mt-4 mb-4">
+                <div class="basic-list-group">
+                    <div class="row justify-content-center">
+                        <div class="col-6 mb-4 mb-sm-0">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a style="border:none" class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home" aria-selected="false">Matrix</a> 
+                                <a style="border:none" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile" aria-selected="false">Matrix</a> 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
+@endsection
+@section('content-kanan')
+<div class="container-fluid m-4">
+    <div class="row justify-content-center">
+        <div class="col-10 m-4">
+            <div class="col-12">
+                <div class="card card-widget">
+                    <div class="card-body">
+                        <div class="card-title"><i class="fa fa-folder-open"></i>&nbsp;&nbsp;Perkalian Matrix</div>
+                        <div class="media">
+                            <div class="media-body">
+                                <div class="row"><span class="mr-3"><i class="fa fa-file-video-o"></i></span>
+                                    <a href="">Video Matrix</a>
+                                </div>
+                                <div class="row"><span class="mr-3"><i class="fa fa-file-image-o"></i></span>
+                                    <a href="">Perkalian Matrix</a>
+                                </div>
+                                <div class="row"><span class="mr-3"><i class="fa fa-file-code-o"></i></span>
+                                    <a href="">Perkalian Matrix</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>  
+</div>
 @endsection

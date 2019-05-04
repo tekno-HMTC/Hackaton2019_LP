@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Chapter;
+use App\Models\ModulesChapter;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -12,9 +14,11 @@ class ChapterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($sid, $cid)
     {
-        //
+        $matkul = Course::find($cid);
+        $chapter = Chapter::where('course_id', $cid)->get();
+        return view('chapters.index', compact('chapter','matkul'));
     }
 
     /**
@@ -35,7 +39,18 @@ class ChapterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $chapter = new Chapter([
+            'name' => $request->get('name'),
+            'course_id' => $request->get('course_id'),
+            'description' => $request->get('description'),
+        ]);
+        $chapter->save();
+
+        return redirect()->route('specializations.courses.chapters.index', [$chapter->course->specialization->id, $chapter->course->id])->with('message', 'Mata Kuliah '.$request->get('name').' dibuat!');
     }
 
     /**
@@ -78,16 +93,16 @@ class ChapterController extends Controller
      * @param  \App\Chapter  $chapter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chapter $chapter)
+    public function destroy($sid, $cid, $chid)
     {
-        //
+        $ch = Chapter::find($chid);
+        $ch->delete();
+
+        return redirect()->back()->with('message', 'Chapter dihapus!');
     }
 
     public function getApiCall($id){
-        $data = Chapter::find($id);
-        if(count($data)==0){
-            return response()->json(['status'=> 'error'],404);
-        }
+        $data = Module::where('chapter_id',$id)->get();
         return response()->json($data,200);
     }
 }

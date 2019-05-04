@@ -16,22 +16,22 @@ class Wish extends Model
     ];
 
     public function specialization(){
-        return $this->belongsTo('App\Specialization');
+        return $this->belongsTo('App\Models\Specialization');
     }
 
     public function course(){
-        return $this->belongsTo('App\Course');
+        return $this->belongsTo('App\Models\Course');
     }
 
     public function module(){
-        return $this->belongsTo('App\Module');
+        return $this->belongsTo('App\Models\Module');
     }
 
     public function chapter(){
-        return $this->belongsTo('App\Chapter');
+        return $this->belongsTo('App\Models\Chapter');
     }
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

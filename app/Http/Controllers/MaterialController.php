@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Module;
 use App\Models\Material;
 use Illuminate\Http\Request;
 
@@ -59,6 +60,7 @@ class MaterialController extends Controller
 
         $material = new Material([
             'name' => $request->get('name'),
+            'module_id' => $request->get('module_id'),
             'video_path' => $request->get('video_path'),
             'image_path' => $path,
             'html' => $request->get('html'),
@@ -67,7 +69,9 @@ class MaterialController extends Controller
         ]);
         $material->save();
 
-        return redirect()->route('materials.store')->with('message', 'Materi telah dibuat!');
+        $module = Module::find($request->get('module_id'));
+
+        return redirect()->route('specializations.courses.chapters.modules.show', [$material->module->chapter->course->specialization->id, $material->module->chapter->course->id, $material->module->chapter->id, $material->module->id, $material->id])->with('module',$module);
     }
 
     /**

@@ -10,7 +10,7 @@ class WishController extends Controller
 {
     
     function __construct(){
-        define('LINE_API_KEY','kZcto0j6AbahhTRSdjBxdXlfvtDfD+TW876ZdiRAL5fPsCgQmMrX8b/PYH7YFy+Y3cf3XlBXRh9HtJtXSAjoaW55aHj1PFy4JHf52nP1zXB4cwwZurOQtaQU03H5vCsqypo0J22Wsq8z1Bbevwn5kwdB04t89/1O/w1cDnyilFU=');
+        // define('LINE_API_KEY','kZcto0j6AbahhTRSdjBxdXlfvtDfD+TW876ZdiRAL5fPsCgQmMrX8b/PYH7YFy+Y3cf3XlBXRh9HtJtXSAjoaW55aHj1PFy4JHf52nP1zXB4cwwZurOQtaQU03H5vCsqypo0J22Wsq8z1Bbevwn5kwdB04t89/1O/w1cDnyilFU=');
     }
     /**
      * Display a listing of the resource.

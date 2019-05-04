@@ -19,10 +19,10 @@ class Specialization extends Model
     ];
 
     public function courses(){
-        return $this->hasMany('App\Course');
+        return $this->hasMany('App\Models\Course');
     }
 
     public function wishes(){
-        return $this->hasMany('App\Wish');
+        return $this->hasMany('App\Models\Wish');
     }
 }

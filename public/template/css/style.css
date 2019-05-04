@@ -100,10 +100,12 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 html {
   font-family: sans-serif;
   line-height: 1.15;
+  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+}
 
 @-ms-viewport {
   width: device-width; }
@@ -3778,7 +3780,9 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   padding-left: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  font-family: 'Lato', 'Helvetica', 'Corbel', sans-serif; 
+}
 
 .list-group-item-action {
   width: 100%;
@@ -7574,15 +7578,14 @@ sub {
 @media (max-width: 767.98px) {
   [data-sidebar-style="overlay"] .nav-header .logo-abbr {
     display: block; } }
-
 [data-header-position="fixed"] .nav-header {
   position: fixed;
   z-index: 999;
   left: auto; }
 
 .nav-header {
-  height: 5rem;
-  width: 15.1875rem;
+  height: 4rem;
+  width: 300px;
   display: inline-block;
   text-align: left;
   position: absolute;
@@ -7597,7 +7600,7 @@ sub {
     display: none; }
   @media only screen and (min-width: 1200px) and (max-width: 1350px) {
     .nav-header {
-      width: 14.375rem; } }
+      width: 0; } }
   .nav-header .brand-logo {
     z-index: 999; }
     .nav-header .brand-logo a {
@@ -7674,12 +7677,12 @@ sub {
         [data-sidebar-style="compact"] .nav-header .logo-compact {
           display: block; }
         .header {
-          height: 5rem;
+          height: 4rem;
           z-index: 1;
           position: relative;
           padding: 0 0.9375rem;
           background: #fff;
-          margin-left: 0;
+          margin-left: 300px;
           transition: all .2s ease; }
           .header .header-content {
             height: 100%; }
@@ -7700,11 +7703,11 @@ sub {
               margin-left: 0; } }
         
         [data-sidebar-style="full"] .header, [data-sidebar-style="overlay"] .header {
-          width: calc(100%); }
+          width: calc(100%-300px); }
           @media only screen and (min-width: 1200px) and (max-width: 1350px) {
             [data-sidebar-style="full"] .header, [data-sidebar-style="overlay"] .header {
-              width: calc(100%);
-              margin-left: 0; } }
+              width: calc(100%-300px);
+              margin-left: 300px; } }
           @media only screen and (max-width: 767px) {
             [data-sidebar-style="full"] .header, [data-sidebar-style="overlay"] .header {
               width: calc(100%);
@@ -7810,10 +7813,10 @@ sub {
     display: none;
     z-index: 9999;
     width: 20rem;
-    top: -1rem !important;
+    top: -1.5rem !important;
     position: absolute;
     right: auto !important;
-    left: 0 !important;
+    left: -3rem !important;
     transform: translate3d(0px, 75px, 0px) !important;
     transition: all 0.4s ease-in-out;
     border-top: 0;
@@ -14039,7 +14042,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   padding-right: 15rem; }
 
 [data-nav-headerbg="color_1"] .nav-header {
-  background-color: #0dacbb; }
+  background-color: #f3f3f9; }
 
 [data-nav-headerbg="color_2"] .nav-header {
   background-color: #27394F !important; }

@@ -21,7 +21,7 @@ class CreateMaterialsTable extends Migration
             $table->string('image_path', 255)->nullable();
             $table->text('html')->nullable();
             $table->boolean('active');
-            $table->integer('type');
+            $table->string('type');
             $table->timestamps();
         });
     }

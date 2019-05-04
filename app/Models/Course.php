@@ -16,14 +16,14 @@ class Course extends Model
     ];
 
     public function specialization(){
-        return $this->belongsTo('App\Specialization');
+        return $this->belongsTo('App\Models\Specialization');
     }
 
     public function wishes(){
-        return $this->hasMany('App\Wish');
+        return $this->hasMany('App\Models\Wish');
     }
 
     public function chapters(){
-        return $this->hasMany('App\Chapter');
+        return $this->hasMany('App\Models\Chapter');
     }
 }

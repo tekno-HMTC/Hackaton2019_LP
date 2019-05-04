@@ -15,9 +15,11 @@ use Illuminate\Http\Request;
 
 // Route::post('wishes','WishController@update');
 
-Route::get('/spec/{id}','SpecializationController@getSpecAPI');
+Route::get('/spec','SpecializationController@getSpecAPI');
+Route::get('/specs/{id}','SpecializationController@getSpecAPIS');
 Route::get('/chapter/{id}','ChapterController@getApiCall');
 Route::get('/module/{id}','ModuleController@getAPICall');
+Route::get('/course/{id}','CourseController@getAPICall');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

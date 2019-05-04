@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>LPencerdas - </title>
+    <title>@yield('title') LPencerdas</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{!! asset('template/images/idea.png') !!}">
     @include('partials.css')
@@ -15,14 +15,14 @@
 
 <body>
     @include('layouts.preloader')
-    <div id="main-wrapper"style="margin-bottom:-18px">
+    <div id="main-wrapper" style="margin-bottom:-18px">
         @include('layouts.header')
-        <div style="min-height: calc(100vh - 133px)">
+        <div style="min-height: calc(100vh - 133px + 18px)">
             <div class="row">
-                <div class="col-3" style="min-height: calc(100vh - 133px)">
+                <div style="min-height: calc(100vh - 133px + 18px); width:314.75px;">
                     @yield('content-kiri')
                 </div>
-                <div class="col-9" style="min-height: calc(100vh - 133px)">
+                <div class="col-9" style="min-height: calc(100vh - 133px + 18px); width:calc(100%-314.75px);">
                     @yield('content-kanan')
                 </div>
             </div>
@@ -35,7 +35,7 @@
     ***********************************-->
 
     @include('partials.js')
-
+    @yield('addJS')
 </body>
 
 </html>

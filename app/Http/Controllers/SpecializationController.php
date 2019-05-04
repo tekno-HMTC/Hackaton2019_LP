@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Specialization;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class SpecializationController extends Controller
@@ -15,7 +16,17 @@ class SpecializationController extends Controller
     public function index()
     {
         $rmk = Specialization::all();
-        return view('specializations.index', compact('rmk'));
+        $mk = [
+            '1' => Course::where('specialization_id',1)->get(),
+            '2' => Course::where('specialization_id',2)->get(),
+            '3' => Course::where('specialization_id',3)->get(),
+            '4' => Course::where('specialization_id',4)->get(),
+            '5' => Course::where('specialization_id',5)->get(),
+            '6' => Course::where('specialization_id',6)->get(),
+            '7' => Course::where('specialization_id',7)->get(),
+            '8' => Course::where('specialization_id',8)->get(),
+        ];
+        return view('specializations.index', compact('rmk', 'mk'));
     }
 
     /**
@@ -109,13 +120,17 @@ class SpecializationController extends Controller
         return redirect()->back()->with('message', 'RMK dihapus!');
     }
 
-    public function getSpecAPI($id){
-        $data = Specialization::find($id);
+    public function getSpecAPI(){
+        $data = Specialization::all();
         if(count($data)==0){
             return response()->json(['status'=> 'error'],404);
         }
         return response()->json($data,200);
     }
 
+    public function getSpecAPIS($id){
+        $data = Course::where('specialization_id',$id)->get();
+        return response()->json($data,200);
+    }
 
 }

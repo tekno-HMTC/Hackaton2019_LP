@@ -29,19 +29,7 @@
                                 <label class="col-form-label" for="val-username">Rumpun Mata Kuliah <span class="text-danger">*</span></label>
                             </div>
                             <div class="row col-md-8">
-                                <select class="form-control" id="val-skill" name="rmk">
-                                    <option value="">Pilih</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">JavaScript</option>
-                                    <option value="angular">Angular</option>
-                                    <option value="angular">React</option>
-                                    <option value="vuejs">Vue.js</option>
-                                    <option value="ruby">Ruby</option>
-                                    <option value="php">PHP</option>
-                                    <option value="asp">ASP.NET</option>
-                                    <option value="python">Python</option>
-                                    <option value="mysql">MySQL</option>
+                                <select class="form-control" id="select-rmk" name="specialization_id">
                                 </select>
                             </div>
                         </div>
@@ -50,19 +38,7 @@
                                 <label class="col-form-label" for="val-username">Mata Kuliah <span class="text-danger">*</span></label>
                             </div>
                             <div class="row col-md-8">
-                                <select class="form-control" id="val-skill" name="mk">
-                                    <option value="">Pilih</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">JavaScript</option>
-                                    <option value="angular">Angular</option>
-                                    <option value="angular">React</option>
-                                    <option value="vuejs">Vue.js</option>
-                                    <option value="ruby">Ruby</option>
-                                    <option value="php">PHP</option>
-                                    <option value="asp">ASP.NET</option>
-                                    <option value="python">Python</option>
-                                    <option value="mysql">MySQL</option>
+                                <select id="select-course" class="form-control" id="val-skill" name="course_id">
                                 </select>
                             </div>
                         </div>
@@ -71,19 +47,7 @@
                                 <label class="col-form-label" for="val-username">Bab<span class="text-danger">*</span></label>
                             </div>
                             <div class="row col-md-8">
-                                <select class="form-control" id="val-skill" name="bab">
-                                    <option value="">Pilih</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">JavaScript</option>
-                                    <option value="angular">Angular</option>
-                                    <option value="angular">React</option>
-                                    <option value="vuejs">Vue.js</option>
-                                    <option value="ruby">Ruby</option>
-                                    <option value="php">PHP</option>
-                                    <option value="asp">ASP.NET</option>
-                                    <option value="python">Python</option>
-                                    <option value="mysql">MySQL</option>
+                                <select id="select-chapter" class="form-control" id="val-skill" name="chapter_id">
                                 </select>
                             </div>
                         </div>
@@ -92,19 +56,7 @@
                                 <label class="col-form-label" for="val-username">Modul <span class="text-danger">*</span></label>
                             </div>
                             <div class="row col-md-8">
-                                <select class="form-control" id="val-skill" name="modul">
-                                    <option value="">Pilih</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">JavaScript</option>
-                                    <option value="angular">Angular</option>
-                                    <option value="angular">React</option>
-                                    <option value="vuejs">Vue.js</option>
-                                    <option value="ruby">Ruby</option>
-                                    <option value="php">PHP</option>
-                                    <option value="asp">ASP.NET</option>
-                                    <option value="python">Python</option>
-                                    <option value="mysql">MySQL</option>
+                                <select id="select-module" class="form-control" id="val-skill" name="module_id">
                                 </select>
                             </div>
                         </div>
@@ -126,4 +78,81 @@
         </div>
     </div>
 </div>
+@endsection
+@section('addJS')
+<script>
+
+    function getRMK(){
+        var o = new Option("Pilih", "");
+        $('#select-rmk').append(o)
+        $.ajax({ 
+            type: 'GET', 
+            url: 'http://localhost:8000/api/spec/', 
+            dataType: 'json',
+            success: function (data) { 
+                $.each(data, function(index, element) {
+                    var opt = new Option(element.name, element.id);
+                    $('#select-rmk').append(opt);
+                });
+            }
+        });
+    }
+
+    function pilihRMK(){
+        $('#select-course').find('option').remove();
+        var o = new Option("Pilih", "");
+        $('#select-course').append(o)
+        $.ajax({ 
+            type: 'GET', 
+            url: 'http://localhost:8000/api/specs/' + $('#select-rmk').find(":selected").val(),  
+            dataType: 'json',
+            success: function (data) { 
+                $.each(data, function(index, element) {
+                    var opt = new Option(element.name, element.id);
+                    $('#select-course').append(opt);
+                });
+            }
+        });
+    }
+
+    function pilihCourse(){
+        $.ajax({ 
+            type: 'GET', 
+            url: 'http://localhost:8000/api/course/' + $('#select-course').find(":selected").val(),
+            dataType: 'json',
+            success: function (data) { 
+                $.each(data, function(index, element) {
+                    var opt = new Option(element.name, element.id);
+                    $('#select-chapter').append(opt);
+                });
+            }
+        });
+    }
+
+    function pilihChapter(){
+        $.ajax({ 
+            type: 'GET', 
+            url: 'http://localhost/api/chapter/' + $('#select-chapter').find(":selected").val(),
+            dataType: 'json',
+            success: function (data) { 
+                $.each(data, function(index, element) {
+                    var opt = new Option(element.name, element.id);
+                    $('#select-module').append(opt);
+                });
+            }
+        });
+    }
+
+    getRMK();
+    $('#select-rmk').change(function(){
+        console.log('edit RMK');
+        pilihRMK();
+    });
+    $('#select-course').change(function(){
+        console.log('edit MK');
+        pilihCourse()
+    });
+    $('#select-chapter').change(pilihChapter());
+
+</script>
 @endsection

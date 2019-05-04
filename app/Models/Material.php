@@ -15,10 +15,10 @@ class Material extends Model
      * @var array
      */
     protected $fillable = [
-        'chapter_id', 'name', 'video_path', 'image_path', 'html', 'active', 'type',
+        'module_id', 'name', 'video_path', 'image_path', 'html', 'active', 'type',
     ];
 
     public function module(){
-        return $this->belongsTo('App\Module');
+        return $this->belongsTo('App\Models\Module');
     }
 }

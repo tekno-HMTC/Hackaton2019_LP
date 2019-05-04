@@ -39,6 +39,21 @@ Route::prefix('/development')->name('development.')->group(function(){
         Route::get('/coba4', function () {
             return view('development.kulguy.coba4');
         });
+        Route::get('/coba5', function () {
+            return view('development.kulguy.coba5');
+        });
+        Route::get('/coba6', function () {
+            return view('development.kulguy.coba6');
+        });
+        Route::get('/coba7', function () {
+            return view('development.kulguy.coba7');
+        });
+        Route::get('/coba8', function () {
+            return view('development.kulguy.coba8');
+        });
+        Route::get('/coba9', function () {
+            return view('development.kulguy.coba9');
+        });
     });
     Route::prefix('/famus')->name('famus')->group(function(){
         Route::get('/coba1', function () {
@@ -139,7 +154,7 @@ Route::prefix('/specializations')->name('specializations.')->group(function(){
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::get('/coba1',function(){
