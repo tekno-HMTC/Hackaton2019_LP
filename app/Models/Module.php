@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Chapter extends Model
+class Module extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,18 +12,18 @@ class Chapter extends Model
      * @var array
      */
     protected $fillable = [
-        'module_id','name', 'description',
+        'course_id', 'name', 'description',
     ];
 
-    public function modules(){
-        return $this->hasMany('App\Module');
+    public function materials(){
+        return $this->hasMany('App\Material');
     }
 
     public function wishes(){
         return $this->hasMany('App\Wish');
     }
 
-    public function course(){
-        return $this->belongsTo('App\Course');
+    public function chapter(){
+        return $this->belongsTo('App\Chapter');
     }
 }
