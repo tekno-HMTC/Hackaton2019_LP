@@ -14,7 +14,8 @@ class ModuleController extends Controller
      */
     public function index()
     {
-        //
+        $modules = Module::all();
+        return view('modules.index', compact('modules'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ModuleController extends Controller
      */
     public function create()
     {
-        return view('module.create');
+        return view('modules.create');
     }
 
     /**
