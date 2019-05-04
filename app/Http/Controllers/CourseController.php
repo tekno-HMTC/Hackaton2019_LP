@@ -12,9 +12,9 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($specializationId)
     {
-        $mk = Course::all();
+        $mk = Course::where('specialization_id',$specializationId)->get();
         return view('couses.index', compact('mk'));
     }
 
