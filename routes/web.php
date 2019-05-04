@@ -54,6 +54,20 @@ Route::prefix('/development')->name('development.')->group(function(){
             return view('development.famus.coba4');
         });
     });
+    Route::prefix('/inand')->name('inand')->group(function(){
+        Route::get('/coba1', function () {
+            return view('development.inand.coba1');
+        });
+        Route::get('/coba2', function () {
+            return view('development.inand.coba2');
+        });
+        Route::get('/coba3', function () {
+            return view('development.inand.coba3');
+        });
+        Route::get('/coba4', function () {
+            return view('development.inand.coba4');
+        });
+    });
 });
 
 Route::resource('users', 'UserController');
