@@ -73,6 +73,8 @@ Route::prefix('/development')->name('development.')->group(function(){
 Route::resource('users', 'UserController');
 Route::resource('wishes', 'WishController');
 
+// Route::get('/user/{id}','UserController@show')->middleware('getadmin');
+
 Route::prefix('/specializations')->name('specializations.')->group(function(){
     Route::get('/', 'SpecializationController@index')->name('index');
     Route::get('/create', 'SpecializationController@create')->name('create');
