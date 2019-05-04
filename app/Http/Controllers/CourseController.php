@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Specialization;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,8 +15,9 @@ class CourseController extends Controller
      */
     public function index($specializationId)
     {
+        $rmk = Specialization::find($specializationId);
         $mk = Course::where('specialization_id',$specializationId)->get();
-        return view('couses.index', compact('mk'));
+        return view('courses.index', compact('mk','rmk'));
     }
 
     /**

@@ -67,11 +67,24 @@ Route::prefix('/development')->name('development.')->group(function(){
         Route::get('/coba4', function () {
             return view('development.inand.coba4');
         });
+        Route::get('/coba5', function () {
+            return view('development.inand.coba5');
+        });
+        Route::get('/coba6', function () {
+            return view('development.inand.coba6');
+        });
+        Route::get('/coba7', function () {
+            return view('development.inand.coba7');
+        });
     });
+    Route::get('testLogin',function(){
+        return view('development.inand.coba1');
+    })->middleware('isLogin');
 });
 
 Route::resource('users', 'UserController');
 Route::resource('wishes', 'WishController');
+
 
 // Route::get('/user/{id}','UserController@show')->middleware('getadmin');
 

@@ -82,4 +82,12 @@ class ChapterController extends Controller
     {
         //
     }
+
+    public function getApiCall($id){
+        $data = Chapter::find($id);
+        if(count($data)==0){
+            return response()->json(['status'=> 'error'],404);
+        }
+        return response()->json($data,200);
+    }
 }

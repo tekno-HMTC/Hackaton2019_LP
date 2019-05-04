@@ -17,12 +17,12 @@
     @include('layouts.preloader')
     <div id="main-wrapper"style="margin-bottom:-18px">
         @include('layouts.header')
-        <div>
+        <div style="min-height: calc(100vh - 133px)">
             <div class="row">
-                <div class="col-4">
+                <div class="col-3" style="min-height: calc(100vh - 133px)">
                     @yield('content-kiri')
                 </div>
-                <div class="col-8">
+                <div class="col-9" style="min-height: calc(100vh - 133px)">
                     @yield('content-kanan')
                 </div>
             </div>

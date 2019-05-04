@@ -18,7 +18,6 @@ class CreateModulesTable extends Migration
             $table->integer('chapter_id')->unsigned();
             $table->string('name', 50);
             $table->text('description')->nullable();
-            $table->boolean('active');
             $table->timestamps();
         });
     }

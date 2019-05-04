@@ -108,4 +108,14 @@ class SpecializationController extends Controller
 
         return redirect()->back()->with('message', 'RMK dihapus!');
     }
+
+    public function getSpecAPI($id){
+        $data = Specialization::find($id);
+        if(count($data)==0){
+            return response()->json(['status'=> 'error'],404);
+        }
+        return response()->json($data,200);
+    }
+
+
 }

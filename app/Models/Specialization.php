@@ -11,8 +11,11 @@ class Specialization extends Model
      *
      * @var array
      */
+    protected $table = 'specializations';
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'name', 'description',
+        'name', 'short', 'path_logo',  'description',
     ];
 
     public function courses(){

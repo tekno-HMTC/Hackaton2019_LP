@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
+// Route::post('wishes','WishController@update');
+
+Route::get('/spec/{id}','SpecializationController@getSpecAPI');
+Route::get('/chapter/{id}','ChapterController@getApiCall');
+Route::get('/module/{id}','ModuleController@getAPICall');
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

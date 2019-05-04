@@ -112,4 +112,12 @@ class ModuleController extends Controller
 
         return redirect()->back()->with('message','Module deleted!');
     }
+
+    public function getAPICall($id){
+        $data = Module::find($id);
+        if(count($data)==0){
+            return response()->json(['status'=> 'error'],404);
+        }
+        return response()->json($data,200);
+    }
 }
