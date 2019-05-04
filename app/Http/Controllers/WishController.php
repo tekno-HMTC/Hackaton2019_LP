@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Wish;
+use App\Models\Wish;
 use Illuminate\Http\Request;
+use GuzzleHttp;
 
 class WishController extends Controller
 {
+    
+    function __construct(){
+        define('LINE_API_KEY','kZcto0j6AbahhTRSdjBxdXlfvtDfD+TW876ZdiRAL5fPsCgQmMrX8b/PYH7YFy+Y3cf3XlBXRh9HtJtXSAjoaW55aHj1PFy4JHf52nP1zXB4cwwZurOQtaQU03H5vCsqypo0J22Wsq8z1Bbevwn5kwdB04t89/1O/w1cDnyilFU=');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -67,9 +72,39 @@ class WishController extends Controller
      * @param  \App\Wish  $wish
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Wish $wish)
-    {
-        //
+    public function update(Request $request, $id)
+    {   
+        $message = '';
+        switch($request->status){
+            case 1:
+                $message = 'sedang diproses';
+                break;
+            case 2:
+                $message = 'sudah selesai';
+                break;
+            case 3:
+                $message = 'ditolak';
+                break;
+        }
+        $wish=Wish::find($id);
+        $wish->status=$request->status;
+        $client = new \GuzzleHttp\Client(['base_uri' => 'https://api.line.me']);
+        $response = $client->post('/v2/bot/message/push', [
+            'headers' => [
+                'Authorization' => 'Bearer '.LINE_API_KEY
+            ],
+            'json' => [
+                'to' => User::find($wish->user_id)->uuid,
+                //'to' =>  'U267c35cf0645c2d3f1870ee7dcc4b97e',
+                'messages' => [[
+                    'type' => 'text',
+                    'text' => 'request anda pada mata kuliah '.$request->mata_kuliah.' '.$message,
+                    //'text' => 'hallo sayang'
+                ]]
+            ]
+        ]);
+        $response=json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
