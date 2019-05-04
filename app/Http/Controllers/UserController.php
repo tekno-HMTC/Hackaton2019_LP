@@ -96,6 +96,7 @@ class UserController extends Controller
             'password' => 'required|confirmed',
         ]);
 
+        $path = '';
         $uploadedProfilePicture = $request->file('profile_picture_path');
         if ($uploadedProfilePicture != null) {
             $path = $uploadedProfilePicture->store('profile-picture-user/'.$user->id, 'public');

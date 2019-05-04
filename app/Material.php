@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Material extends Model
 {
+    const TYPE_VIDEO = 'VIDEO';
+    const TYPE_IMAGE = 'IMAGE';
+    const TYPE_HTML = 'HTML';
     /**
      * The attributes that are mass assignable.
      *

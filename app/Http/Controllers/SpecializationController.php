@@ -58,7 +58,7 @@ class SpecializationController extends Controller
     public function show($id)
     {
         $rmk = Specialization::find($id);
-        return view('specialization.show', compact('rmk'));
+        return view('specializations.show', compact('rmk'));
     }
 
     /**
