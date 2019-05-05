@@ -115,7 +115,7 @@
                                   </div>
                               </div>
                               <div class="col-lg-9">
-                                    @if (\Auth::user()->role == 0)
+                                    @if (\Auth::user()->role == "ADMINISTRATOR")
                                     @if($item->id % 2 == 1)
                                         <div class="asd">
                                             <button type="button" data-toggle="modal" data-target="#modal-{{$item->id}}" class="btn mb-1 btn-outline-success add-modal kanan"><i class="fa fa-plus"></i></button>

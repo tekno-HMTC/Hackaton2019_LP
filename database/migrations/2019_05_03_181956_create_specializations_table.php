@@ -15,7 +15,7 @@ class CreateSpecializationsTable extends Migration
     {
         Schema::create('specializations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50);
+            $table->string('name', 100);
             $table->string('short',10);
             $table->string('path_logo', 100);
             $table->text('description')->nullable();

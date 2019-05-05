@@ -31,6 +31,26 @@
     @include('partials.js')
 
     @yield('addJS')
+    <script>
+        function asd(){
+            $.ajax({ 
+                type: 'GET', 
+                url: 'http://localhost:8000/api/wish/',
+                dataType: 'json',
+                success: function (data) { 
+                    console.log($('#change'))
+                    if(JSON.parse(data)==0){
+                        $('#change').css('display','none');
+                    } else{
+                        $('#change').css('display','block');
+                        $('#change').html(JSON.parse(data));
+                    }
+                    
+                }
+            });
+        }
+        asd();
+    </script>
 
 </body>
 

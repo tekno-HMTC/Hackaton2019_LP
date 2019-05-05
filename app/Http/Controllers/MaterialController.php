@@ -13,10 +13,10 @@ class MaterialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($mid)
+    public function index($sid, $cid, $chid, $mid)
     {
-        $materials = Material::where('module_id', $mid)->get();
-        return view('materials.index', compact('materials'));
+        $material = Material::find($mlid);
+        return view('materials.index');
     }
 
     /**
@@ -64,7 +64,7 @@ class MaterialController extends Controller
             'video_path' => $request->get('video_path'),
             'image_path' => $path,
             'html' => $request->get('html'),
-            'active' => FALSE,
+            'active' => TRUE,
             'type' => $type,
         ]);
         $material->save();
@@ -80,10 +80,10 @@ class MaterialController extends Controller
      * @param  \App\Material  $material
      * @return \Illuminate\Http\Response
      */
-    public function show($mlid)
+    public function show($sid, $cid, $chid, $mid, $mlid)
     {
-        $material = Material::find($mlid);
-        return view('materials.show', compact('material'));
+        $activeMaterial = Material::find($mlid);
+        return view('materials.show')->with('activeMaterial',$activeMaterial);
     }
 
     /**

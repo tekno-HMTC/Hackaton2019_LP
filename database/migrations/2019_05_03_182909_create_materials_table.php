@@ -16,7 +16,7 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('module_id')->unsigned();
-            $table->string('name', 50);
+            $table->string('name', 100);
             $table->string('video_path', 255)->nullable();
             $table->string('image_path', 255)->nullable();
             $table->text('html')->nullable();

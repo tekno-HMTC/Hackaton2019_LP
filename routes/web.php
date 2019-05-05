@@ -102,55 +102,56 @@ Route::resource('wishes', 'WishController');
 
 
 // Route::get('/user/{id}','UserController@show')->middleware('getadmin');
-
-Route::prefix('/specializations')->name('specializations.')->group(function(){
-    Route::get('/', 'SpecializationController@index')->name('index');
-    Route::get('/create', 'SpecializationController@create')->name('create');
-    Route::post('/', 'SpecializationController@store')->name('store');
-    Route::get('/{id}', 'SpecializationController@show')->name('show');
-    Route::get('/{id}/edit', 'SpecializationController@edit')->name('edit');
-    Route::put('/{id}', 'SpecializationController@update')->name('update');
-    Route::delete('/{id}', 'SpecializationController@destroy')->name('destroy');
-
-    Route::prefix('/{sid}/courses')->name('courses.')->group(function(){
-        Route::get('/', 'CourseController@index')->name('index');
-        Route::get('/create', 'CourseController@create')->name('create');
-        Route::post('/', 'CourseController@store')->name('store');
-        Route::get('/{cid}', 'CourseController@show')->name('show');
-        Route::get('/{cid}/edit', 'CourseController@edit')->name('edit');
-        Route::put('/{cid}', 'CourseController@update')->name('update');
-        Route::delete('/{cid}', 'CourseController@destroy')->name('destroy');
-
-        Route::prefix('/{cid}/chapters')->name('chapters.')->group(function(){
-            Route::get('/', 'ChapterController@index')->name('index');
-            Route::get('/create', 'ChapterController@create')->name('create');
-            Route::post('/', 'ChapterController@store')->name('store');
-            Route::get('/{chid}', 'ChapterController@show')->name('show');
-            Route::get('/{chid}/edit', 'ChapterController@edit')->name('edit');
-            Route::put('/{chid}', 'ChapterController@update')->name('update');
-            Route::delete('/{chid}', 'ChapterController@destroy')->name('destroy');
-
-            Route::prefix('/{chid}/modules')->name('modules.')->group(function(){
-                Route::get('/', 'ModuleController@index')->name('index');
-                Route::get('/create', 'ModuleController@create')->name('create');
-                Route::post('/', 'ModuleController@store')->name('store');
-                Route::get('/{mid}', 'ModuleController@show')->name('show');
-                Route::get('/{mid}/edit', 'ModuleController@edit')->name('edit');
-                Route::put('/{mid}', 'ModuleController@update')->name('update');
-                Route::delete('/{mid}', 'ModuleController@destroy')->name('destroy');
-
-                Route::prefix('/{mid}/materials')->name('materials.')->group(function(){
-                    Route::get('/', 'MaterialController@index')->name('index');
-                    Route::get('/create', 'MaterialController@create')->name('create');
-                    Route::post('/', 'MaterialController@store')->name('store');
-                    Route::get('/{mlid}', 'MaterialController@show')->name('show');
-                    Route::get('/{mlid}/edit', 'MaterialController@edit')->name('edit');
-                    Route::put('/{mlid}', 'MaterialController@update')->name('update');
-                    Route::delete('/{mlid}', 'MaterialController@destroy')->name('destroy');
+Route::middleware(['islogin'])->group(function(){
+    Route::prefix('/specializations')->name('specializations.')->group(function(){
+        Route::get('/', 'SpecializationController@index')->name('index');
+        Route::get('/create', 'SpecializationController@create')->name('create');
+        Route::post('/', 'SpecializationController@store')->name('store');
+        Route::get('/{id}', 'SpecializationController@show')->name('show');
+        Route::get('/{id}/edit', 'SpecializationController@edit')->name('edit');
+        Route::put('/{id}', 'SpecializationController@update')->name('update');
+        Route::delete('/{id}', 'SpecializationController@destroy')->name('destroy');
+    
+        Route::prefix('/{sid}/courses')->name('courses.')->group(function(){
+            Route::get('/', 'CourseController@index')->name('index');
+            Route::get('/create', 'CourseController@create')->name('create');
+            Route::post('/', 'CourseController@store')->name('store');
+            Route::get('/{cid}', 'CourseController@show')->name('show');
+            Route::get('/{cid}/edit', 'CourseController@edit')->name('edit');
+            Route::put('/{cid}', 'CourseController@update')->name('update');
+            Route::delete('/{cid}', 'CourseController@destroy')->name('destroy');
+    
+            Route::prefix('/{cid}/chapters')->name('chapters.')->group(function(){
+                Route::get('/', 'ChapterController@index')->name('index');
+                Route::get('/create', 'ChapterController@create')->name('create');
+                Route::post('/', 'ChapterController@store')->name('store');
+                Route::get('/{chid}', 'ChapterController@show')->name('show');
+                Route::get('/{chid}/edit', 'ChapterController@edit')->name('edit');
+                Route::put('/{chid}', 'ChapterController@update')->name('update');
+                Route::delete('/{chid}', 'ChapterController@destroy')->name('destroy');
+    
+                Route::prefix('/{chid}/modules')->name('modules.')->group(function(){
+                    Route::get('/', 'ModuleController@index')->name('index');
+                    Route::get('/create', 'ModuleController@create')->name('create');
+                    Route::post('/', 'ModuleController@store')->name('store');
+                    Route::get('/{mid}', 'ModuleController@show')->name('show');
+                    Route::get('/{mid}/edit', 'ModuleController@edit')->name('edit');
+                    Route::put('/{mid}', 'ModuleController@update')->name('update');
+                    Route::delete('/{mid}', 'ModuleController@destroy')->name('destroy');
+    
+                    Route::prefix('/{mid}/materials')->name('materials.')->group(function(){
+                        Route::get('/', 'MaterialController@index')->name('index');
+                        Route::get('/create', 'MaterialController@create')->name('create');
+                        Route::post('/', 'MaterialController@store')->name('store');
+                        Route::get('/{mlid}', 'MaterialController@show')->name('show');
+                        Route::get('/{mlid}/edit', 'MaterialController@edit')->name('edit');
+                        Route::put('/{mlid}', 'MaterialController@update')->name('update');
+                        Route::delete('/{mlid}', 'MaterialController@destroy')->name('destroy');
+                    });
                 });
             });
         });
-    });
+    });    
 });
 
 Route::get('/', function () {
@@ -164,3 +165,12 @@ Route::get('/coba1',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['islogin'])->group(function(){
+    Route::prefix('/request')->name('request.')->group(function(){
+        Route::get('/', 'WishController@index')->name('index');
+        Route::get('/create', 'WishController@create')->name('create');
+        Route::post('/{id}', 'WishController@update')->name('update');
+        Route::post('/', 'WishController@store')->name('store');
+    });
+});

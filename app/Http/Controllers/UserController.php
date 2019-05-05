@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Storage;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -63,7 +64,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::find(Auth::user()->id);
         return view('users.show', compact('user'));
     }
 
@@ -89,15 +90,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-
-        $request->validate([
-            'username' => 'required|unique:users',
-            'full_name' => 'required',
-            'password' => 'required|confirmed',
-        ]);
-
         $path = '';
-        $uploadedProfilePicture = $request->file('profile_picture_path');
+        $uploadedProfilePicture = $request->file('file');
         if ($uploadedProfilePicture != null) {
             $path = $uploadedProfilePicture->store('profile-picture-user/'.$user->id, 'public');
         } else {
@@ -118,7 +112,7 @@ class UserController extends Controller
         }
         $user->save();
 
-        return redirect()->route('users.update')->with('message', 'User '.$request->get('username').' updated!');
+        return redirect()->route('users.show',$user->id)->with('message', 'User '.$request->get('username').' updated!');
     }
 
     /**

@@ -58,7 +58,7 @@ class ModuleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($sid, $cid, $chid, $mid)
-    {
+    {        
         $module = Module::find($mid);
         return view('modules.show', compact('module'));
     }

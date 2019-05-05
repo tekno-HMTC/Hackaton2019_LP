@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Chapter;
-use App\Models\ModulesChapter;
+use App\Models\Module;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller

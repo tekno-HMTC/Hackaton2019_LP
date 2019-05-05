@@ -276,6 +276,164 @@ class ModulesTableSeeder extends Seeder
                 'name' => 'Computer System Overview',
                 'description' => '',
             ],
-        ];   
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //44
+                'chapter_id' => '13',
+                'name' => 'Computer System Overview',
+                'description' => '',
+            ],
+            [
+                //45
+                'chapter_id' => '13',
+                'name' => 'Operating System Overview',
+                'description' => '',
+            ],
+            [
+                //46
+                'chapter_id' => '14',
+                'name' => 'Process Description and Control',
+                'description' => '',
+            ],
+            [
+                //47
+                'chapter_id' => '14',
+                'name' => 'Threads',
+                'description' => '',
+            ],
+            [
+                //48
+                'chapter_id' => '14',
+                'name' => 'Concurrency: Mutual Exclusion and Synchronization',
+                'description' => '',
+            ],
+            [
+                //49
+                'chapter_id' => '14',
+                'name' => 'Concurrency: Deadlock and Starvation',
+                'description' => '',
+            ],
+            [
+                //50
+                'chapter_id' => '15',
+                'name' => 'Memory Management',
+                'description' => '',
+            ],
+            [
+                //51
+                'chapter_id' => '15',
+                'name' => 'Virtual Memory',
+                'description' => '',
+            ],
+            [
+                //52
+                'chapter_id' => '16',
+                'name' => 'Uniprocessor Schedulling',
+                'description' => '',
+            ],
+            [
+                //53
+                'chapter_id' => '16',
+                'name' => 'Multiprocessor, Multicore, and Real-Time Schedulling',
+                'description' => '',
+            ],
+            [
+                //54
+                'chapter_id' => '17',
+                'name' => 'I/O Management and Disk Scheduling',
+                'description' => '',
+            ],
+            [
+                //56
+                'chapter_id' => '17',
+                'name' => 'File Management',
+                'description' => '',
+            ],
+            [
+                //57
+                'chapter_id' => '18',
+                'name' => 'Embedded Operating System',
+                'description' => '',
+            ],
+            [
+                //58
+                'chapter_id' => '18',
+                'name' => 'Virtual Machines',
+                'description' => '',
+            ],
+            [
+                //59
+                'chapter_id' => '18',
+                'name' => 'Operating System Security',
+                'description' => '',
+            ],
+            [
+                //60
+                'chapter_id' => '18',
+                'name' => 'Cloud and IoT Operating Systems',
+                'description' => '',
+            ],
+
+        ]; 
+        DB::table('modules')->insert($modules);  
     }
 }

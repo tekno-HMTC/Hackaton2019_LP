@@ -20,6 +20,7 @@ Route::get('/specs/{id}','SpecializationController@getSpecAPIS');
 Route::get('/chapter/{id}','ChapterController@getApiCall');
 Route::get('/module/{id}','ModuleController@getAPICall');
 Route::get('/course/{id}','CourseController@getAPICall');
+Route::get('/wish', 'WishController@countNew');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -112,7 +112,7 @@
                                                     <label class="col-form-label" for="name">Nama Mata Kuliah<span class="text-danger">*</span></label>
                                                 </div> -->
                                                 <div class="row col-md-12">
-                                                    <input class="form-control input-rounded" id="name" name="name" placeholder="Masukkan mata kuliah" type="text">
+                                                    <input class="form-control input-rounded" id="name" name="name" placeholder="Nama mata kuliah" type="text">
                                                 </div>
                                             </div>
                                             <div class="form-group">

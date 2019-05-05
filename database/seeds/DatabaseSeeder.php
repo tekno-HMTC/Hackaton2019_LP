@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             SpecializationSeeder::class,
             CoursesTableSeeder::class,
+            ChaptersTableSeeder::class,
+            ModulesTableSeeder::class,
+            MaterialsTableSeeder::class,
         ]);
     }
 }

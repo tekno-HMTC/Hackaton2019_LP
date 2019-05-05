@@ -9,11 +9,13 @@
     }
 
     .list-group-item:hover{
-        background-color: #425C6C;
+        background-color: gray;
+        color:white;
     }
 
-    .list-group-item{
-        gradient
+    .list-group-item.show.active{
+        color:white !important;
+        background-color: white !important; 
     }
 
 </style>
@@ -45,29 +47,29 @@
                 <div class="basic-list-group">
                     <div class="row justify-content-center">
                         <div class="col-10 mb-4 mb-sm-0">
-                            <div class="list-group" id="list-tab" role="tablist">                                
-                                <a style="border:none" class="list-group-item list-group-item-action show active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
+                            <div id="list-group" class="list-group" id="list-tab" role="tablist">                                
+                                <a style="border:none" class="list-group-item gradient-3" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
                                     <div class="row ml-2 mr-2">
                                         <span class="mr-2">
                                             <i class="fa fa-video-camera"></i>
                                         </span>
-                                        <h6>Sifat Perkalian Matrix</h6>
+                                        Sifat Perkalian Matrix
                                     </div>
                                 </a> 
-                                <a style="border:none" class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
+                                <a style="border:none" class="list-group-item" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
                                     <div class="row ml-2 mr-2">
                                         <span class="mr-1">
                                             <i class="fa fa-file-text"></i>
                                         </span>
-                                        <h6>Aturan Perkalian Matrix</h6>
+                                        Aturan Perkalian Matrix
                                     </div>
                                 </a>
-                                <a style="border:none" class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
+                                <a style="border:none" class="list-group-item" id="list-home-list" data-toggle="list" href="#list-home" role="tab">
                                     <div class="row ml-2 mr-2">
                                         <span class="mr-1">
                                             <i class="fa fa-image"></i>
                                         </span>
-                                        <h6>Teknik Perkalian Matrix</h6>
+                                        Teknik Perkalian Matrix
                                     </div>
                                 </a>
                             </div>
@@ -83,6 +85,11 @@
     <div class="row justify-content-center" style="height: 100%">
         <div class="col-10 m-4">
             <div class="col-12" style="height: 80%">
+                <div class="row">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Nonaktifkan
+                    </label>
+                </div>
                 <div class="row">
                     <h3>Judul Materi</h3>
                 </div>
@@ -107,12 +114,13 @@
     // Add active class to the current button (highlight it)
     var header = document.getElementById("list-group");
     var btns = header.getElementsByClassName("list-group-item");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("gradient-5");
-        current[0].className = current[0].className.replace(" gradient-5", "");
-        this.className += "gradient-5";
-      });
+    for (var i = 0; i < btns.length; i++) {        
+        btns[i].addEventListener("click", function() {
+            console.log("lala")
+            var current = header.getElementsByClassName("gradient-3");
+            current[0].className = current[0].className.replace(" gradient-3", "");
+            this.className += " gradient-3";
+        });
     }
     </script>
 @endsection
